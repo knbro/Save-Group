@@ -25,7 +25,7 @@ Bot = Client(
 )
 
 
-@User.on_message(filters.group & (filters.document | filters.video) & ~filters.edited)
+@User.on_message(filters.group & (filters.voice | filters.audio) & ~filters.edited)
 async def files_handler(bot: Client, cmd: Message):
     media = cmd.document or cmd.video
     if media.file_name.rsplit(".", 1)[-1] in Config.BLOCKED_EXTENSIONS:
@@ -62,7 +62,7 @@ async def files_handler(bot: Client, cmd: Message):
                f"**File Name:** `{media.file_name}`\n\n" \
                f"[👉 Get File Now 👈](https://t.me/{(await Bot.get_me()).username}?start=AbirHasan2005_{str(forward.message_id)})"
     else:
-        text = f"{cmd.from_user.mention} Unkil,\n" \
+        text = f"{cmd.from_user.mention} bro☺️,\n" \
                "This File will be deleted in 10 minutes.\n\n" \
                "But,\n" \
                "Your File stored in Database!\n\n" \
@@ -121,7 +121,7 @@ async def Fsub_handler(bot: Client, event: Message):
 async def start_handler(bot: Client, event: Message):
     __data = event.text.split("_")[-1]
     if __data == "/start":
-        await sendMessage(bot, "Go Away Unkil", event.message_id, event.chat.id)
+        await sendMessage(bot, "Service closed ", event.message_id, event.chat.id)
     else:
         file_id = int(__data)
         try:
